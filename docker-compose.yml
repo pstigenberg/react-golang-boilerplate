@@ -1,0 +1,72 @@
+version: '2'
+services:
+    api:
+        container_name: api
+        build: 
+            context: ./api
+        expose:
+            - "8081"
+        volumes:
+            - ./logs/:/var/log/nginx/
+        environment:
+            - API_KEY=somefantasticapikey
+        networks:
+            icnetwork:
+                ipv4_address: 172.25.2.10
+    filebundler:
+        container_name: filebundler
+        build: 
+            context: ./filebundler
+        volumes_from: 
+            - web
+        environment:
+            - API_KEY=somefantasticapikey
+        networks:
+            icnetwork:
+                ipv4_address: 172.25.2.11
+    gulp:
+        container_name: gulp
+        build: 
+            context: ./gulp
+        volumes_from: 
+            - web
+        networks:
+            icnetwork:
+                ipv4_address: 172.25.2.12
+    nginxreverseproxy:
+        container_name: reverse-proxy
+        build: 
+            context: ./nginx-reverse-proxy
+        expose:
+            - "80"
+        links:
+            - web:site
+        ports:
+            - "80:80"
+        volumes:
+            - ./logs/:/var/log/nginx/
+            - ./nginx-reverse-proxy/config/default:/etc/nginx/conf.d/
+        networks:
+            icnetwork:
+                ipv4_address: 172.25.2.13
+    web:
+        container_name: web
+        build: 
+            context: ./web
+        expose:
+            - "8081"
+        volumes:
+            - ./logs/:/var/log/nginx/
+            - ./web/web_app:/var/www/html/web
+            - ./web/config/default:/etc/nginx/conf.d/
+            - /var/www/html/web/node_modules
+            - /var/www/html/web/dist
+        networks:
+            icnetwork:
+                ipv4_address: 172.25.2.14
+networks:
+  icnetwork:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.25.2.0/24

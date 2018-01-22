@@ -1,0 +1,12 @@
+
+# OS junk files
+*.DS_Store
+
+# Other junk files
+*.pyc
+*.log
+
+# Dev files
+logs/
+web/web_app/node_modules/
+web/web_app/dist/
