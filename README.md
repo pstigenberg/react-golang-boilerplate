@@ -24,6 +24,6 @@ As the name suggests a reverse proxy based on nginx. Forwards requests to the ap
 
 ### web
 
-The web folder contains the web project including the nginx that serves the web part of the solution. The web is based on react/redux and for this I have used a boilerplate called React Slingshot. Since this is a lightweight test project I have removed quite a lot from the boilerplatd, such as unnessessary things like unit testing. Another notable change is that everything connected to hot-reload is removed and the reason for this is the fact that everything in this project is served by nginx, not webpack.
+The web folder contains the web project including the nginx that serves the web part of the solution. The web is based on react/redux and for this I have used a boilerplate called React Slingshot. Since this is a lightweight test project I have removed quite a lot from the boilerplate, such as unnecessary things like unit testing. Another notable change is that everything connected to hot-reload is removed and the reason for this is the fact that everything in this project is served by nginx, not webpack.
 
 The web solution contains a few files and a index page that fetches it's settings from the api. Just to make sure that everything works.
