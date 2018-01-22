@@ -68,7 +68,7 @@ func SettingsGetHandler(w http.ResponseWriter, r *http.Request) {
 	case "OPTIONS":
 		w.WriteHeader(http.StatusOK)
 	case "GET":
-		dummyAnser := Response{Settings{IndexPageHeading: "Page heading"}}
+		dummyAnser := Response{Settings{IndexPageHeading: "It works... This setting comes from the API"}}
 		dummyData, _ := json.Marshal(dummyAnser)
 		fmt.Fprint(w, string(dummyData))
 		w.WriteHeader(http.StatusOK)
