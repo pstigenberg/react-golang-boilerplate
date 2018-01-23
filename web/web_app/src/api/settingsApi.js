@@ -1,8 +1,8 @@
-import * as siteSettings from '../config/settings.js';
+import * as siteSettings from '../config/settings';
 
 export function getSettings() {
     return new Promise((resolve, reject) => {
-        var r = new XMLHttpRequest();
+        let r = new XMLHttpRequest();
         r.open('GET', siteSettings.API_ENDPOINT);
         r.setRequestHeader(siteSettings.API_ENDPOINT_API_KEY_NAME, siteSettings.API_KEY);  
         r.onload = function() {

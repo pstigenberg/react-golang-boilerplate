@@ -20,7 +20,8 @@ IndexPage.propTypes = {
     settings: PropTypes.object.isRequired
 };
 
-function mapStateToProps(state, ownProps){
+function mapStateToProps(state){
+    
     return {
         settings: state.settings
     };

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
-import configureStore from './store/configureStore';
-import { history } from './store/configureStore';
+import configureStore, { history } from './store/configureStore';
 import Root from './components/Root';
 import './styles/styles.scss'; 
 
