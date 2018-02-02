@@ -17,7 +17,7 @@ const APIKeyName = "Authorization"
 // APIEnvVariableName constant for api key environment variable
 const APIEnvVariableName = "API_KEY"
 
-// Response a struct representing the resonse object
+// Response a struct representing the response object
 type Response struct {
 	Settings Settings `json:"settings"`
 }
@@ -51,7 +51,7 @@ func IndexGetHandler(w http.ResponseWriter, r *http.Request) {
 	case "OPTIONS":
 		w.WriteHeader(http.StatusOK)
 	case "GET":
-		fmt.Fprint(w, "An API, if you know it you know it...")
+		fmt.Fprint(w, "An API, if you know it you know it")
 		w.WriteHeader(http.StatusOK)
 	default:
 		w.WriteHeader(http.StatusMethodNotAllowed)
@@ -68,7 +68,7 @@ func SettingsGetHandler(w http.ResponseWriter, r *http.Request) {
 	case "OPTIONS":
 		w.WriteHeader(http.StatusOK)
 	case "GET":
-		dummyAnser := Response{Settings{IndexPageHeading: "It works... This setting comes from the API"}}
+		dummyAnser := Response{Settings{IndexPageHeading: "It works! This setting comes from the API"}}
 		dummyData, _ := json.Marshal(dummyAnser)
 		fmt.Fprint(w, string(dummyData))
 		w.WriteHeader(http.StatusOK)

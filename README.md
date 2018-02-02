@@ -1,16 +1,16 @@
 # React-Golang Boilerplate
 
-This is my own boilerplate project for React connected with a Golang API. The react part is based on the boilerplate called React Slingshot. If you for some strange reason would like to test it, follow the getting started guide below. It doesn’t do much, it’s just a small react app with a IndexPage component that fetches the page title from the API written in Golang.
+This is my own boilerplate project for React connected with a Golang API. The react part is based on the boilerplate called React Slingshot. If you for some strange reason would like to test this boilerplate, follow the getting started guide below. It doesn’t do much, it’s just a small react app with a IndexPage component that fetches the page title from the API written in Golang.
 
-On of the goals that I had was to get a dev environment as close to production as possible. Therefore I decided not to use the build in web server from WebPack, instead WebPack watches for file changes and builds the bundle files and stores them in the /dist-folder served by nginx.
+On of the goals I had was to get a dev environment as close to production as possible. Therefore I decided not to use the build in web server from WebPack, instead WebPack watches for file changes and builds the bundle files and stores them in the /dist-folder served by nginx. For convenience the bundles are not minified but this could be solved with a production version of WebPack config.
 
 ## Get Started
 
-1. Clone the project
+1. Clone or copy the project
 2. Add the following hosts to your host file "127.0.0.1 react-golang-boilerplate.com" and "127.0.0.1 api.react-golang-boilerplate.com"
 3. From the folder where the docker-compose.yml is, run "docker-compose build” then wait… It will take awhile
 4. When it’s done run "docker-compose up” this will start the containers and build the bundles
-5. When the filebundler container is done you can open a browser and visit react-golang-boilerplate.com
+5. When the file-bundler container is done you can open a browser and visit react-golang-boilerplate.com
 
 ## About the project
 
@@ -20,7 +20,7 @@ The api folder contains the api container with a single file for the Go API. The
 
 ### filebundler
 
-The folder only contains a docker file setting up a container that runs webpack --watch. The reson for this is that one goal for the project is to run everything as production like as possible. Webpack will not serve the files, WebPack only builds the bundle files to a /dist folder, served by nginx.
+The folder only contains a docker file setting up a container that runs webpack --watch. The reason for this is that one goal for the project is to run everything as production like as possible. Webpack will not serve the files, WebPack only builds the bundle files to a /dist folder, served by nginx.
 
 ### gulp
 
