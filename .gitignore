@@ -3,6 +3,7 @@
 *.DS_Store
 
 # Other junk files
+.vscode/
 *.pyc
 *.log
 
