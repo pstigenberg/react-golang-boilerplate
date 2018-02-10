@@ -1,18 +1,18 @@
 "use strict";
 
-var gulp = require('gulp');
-var lint = require('gulp-eslint');
+const gulp = require('gulp');
+const eslint = require('gulp-eslint');
 
-var config = {
+const config = {
     paths: {
         js: './src/**/*.js'
     }
-}
+};
 
-gulp.task('lint', function() {
-    return gulp.src(config.paths.js)
-        .pipe(lint({config: 'eslint.config.json'}))
-        .pipe(lint.format());
+gulp.task('lint', () => {
+    return gulp.src(['./src/**/*.js','!node_modules/**'])
+        .pipe(eslint())
+        .pipe(eslint.format());
 });
 
 gulp.task('watch', function() {

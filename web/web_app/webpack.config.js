@@ -1,10 +1,9 @@
-var webpack = require("webpack");
-var path = require("path");
+const webpack = require("webpack");
+const path = require("path");
 
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
-var WebpackMd5Hash  = require("webpack-md5-hash");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const WebpackMd5Hash  = require("webpack-md5-hash");
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('development'),
