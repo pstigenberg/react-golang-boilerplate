@@ -4,7 +4,7 @@ services:
         container_name: api
         build: 
             context: ./api
-            dockerfile: dev.Dockerfile
+            dockerfile: prod.Dockerfile
         expose:
             - "8081"
         volumes:
@@ -19,7 +19,7 @@ services:
         container_name: filebundler
         build: 
             context: ./filebundler
-            dockerfile: dev.Dockerfile
+            dockerfile: prod.Dockerfile
         volumes_from: 
             - web
         environment:
@@ -27,15 +27,6 @@ services:
         networks:
             icnetwork:
                 ipv4_address: 172.25.2.11
-    gulp:
-        container_name: gulp
-        build: 
-            context: ./gulp
-        volumes_from: 
-            - web
-        networks:
-            icnetwork:
-                ipv4_address: 172.25.2.12
     nginxreverseproxy:
         container_name: reverse-proxy
         build: 
