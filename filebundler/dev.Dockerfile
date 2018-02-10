@@ -7,5 +7,5 @@ RUN apk add --update bash curl nano nodejs && \
 # Define working directory
 WORKDIR /var/www/html/web
 
-# Define default command
-CMD webpack --watch
+# Define default command, switch the --display value to normal or verbose if you want more info
+CMD webpack --watch --display=minimal

@@ -5,11 +5,6 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackMd5Hash  = require("webpack-md5-hash");
 
-const GLOBALS = {
-  'process.env.NODE_ENV': JSON.stringify('development'),
-  __DEV__: true
-};
-
 module.exports =  {
   resolve: {
     extensions: ['*', '.js', '.jsx', '.json']
@@ -24,7 +19,6 @@ module.exports =  {
   },
   plugins: [
     new WebpackMd5Hash(),
-    new webpack.DefinePlugin(GLOBALS),
     new ExtractTextPlugin('[name].[contenthash].css'),
     new webpack.EnvironmentPlugin(['API_KEY']),       
     new HtmlWebpackPlugin({
