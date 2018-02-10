@@ -16,11 +16,11 @@ On of the goals I had was to get a dev environment as close to production as pos
 
 ### api
 
-The api folder contains the api container with a single file for the Go API. The api requires a authentication key and this is specifies in the docker compose files as a environment variable. Remember that the web-project needs the same authentication key and that key is also defined in the docker-compose file. The API uses [go-watcher](https://github.com/canthefason/go-watcher/) and the app is rebuilt when a file is changed.
+The api folder contains the api container with a single file for the Go API. The api requires a authentication key and this is specifies in the docker compose files as a environment variable. Remember that the web-project needs the same authentication key and that key is also defined in the docker-compose file. The API uses [go-watcher](https://github.com/canthefason/go-watcher/) and the app is rebuilt when a file is changed. The watcher-stuff is only enabled in dev mode and that's handled in the Dockerfiles.
 
 ### filebundler
 
-The folder only contains a docker file setting up a container that runs webpack --watch. The reason for this is that one goal for the project is to run everything as production like as possible. Webpack will not serve the files, WebPack only builds the bundle files to a /dist folder, served by nginx.
+The folder only contains two docker files. The docker file for dev is setting up a container that runs webpack --watch. The reason for this is that one goal for the project is to run everything as production like as possible. The Webpack config files are located in the web project and for dev Webpack will not serve the files. WebPack only builds the bundle files to a /dist folder, served by nginx. The docker file for prod is similar but executes Webpack with the production config file that minifies the bundle files. 
 
 ### gulp
 
